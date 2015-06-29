@@ -1,0 +1,22 @@
+{
+  "name": "trie-vis",
+  "description": "visualizing tries",
+  "private": true,
+  "author": "Ahmet Kizilay",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artsince/trie-vis"
+  },
+  "dependencies": {
+    "flux": "^2.0.3",
+    "keymirror": "^0.1.1",
+    "object-assign": "^3.0.0",
+    "reactify": "^1.1.1"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.4.14"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  }
+}
