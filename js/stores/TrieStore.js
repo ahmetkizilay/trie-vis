@@ -43,7 +43,7 @@ TrieDispatcher.register(function (action) {
       TrieStore.emitChange();
       break;
     case TrieConstants.TRIE_SEARCH_PHRASE:
-      _trie.pathTo(action.word);
+      _path = _trie.pathTo(action.phrase);
       TrieStore.emitChange();
       break;
   }

@@ -1,11 +1,10 @@
-var node = {
-  val: '',
-  next: null
-}
+var Queue = require('./queue');
+var Stack = require('./stack');
 
 var Trie = function() {
   this.start = {
     val: '',
+    depth: 0,
     children: []
   }
 };
@@ -26,7 +25,8 @@ Trie.prototype.insert = function (word) {
     if (!inserted) {
       crawl.children.push({
         val: word[i],
-        children: []
+        children: [],
+        depth: crawl.depth + 1
       });
 
       crawl = crawl.children[crawl.children.length - 1];
@@ -75,6 +75,32 @@ Trie.prototype.pathTo = function (phrase) {
   }
 
   return path;
+};
+
+Trie.prototype.traverse_depth = function (cb) {
+  var s = new Stack();
+  s.push(this.start);
+  while (!s.isEmpty()) {
+    var item = s.pop();
+    item.children.forEach(function (child) {
+      s.push(child);
+    });
+
+    cb(item);
+  }
+};
+
+Trie.prototype.traverse_breadth = function (cb) {
+  var q = new Queue();
+  q.enqueue(this.start);
+  while (!q.isEmpty()) {
+    var item = q.dequeue();
+    item.children.forEach(function (child) {
+      q.enqueue(child);
+    });
+
+    cb(item);
+  }
 };
 
 module.exports = Trie;
