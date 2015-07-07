@@ -10,8 +10,12 @@ var TrieEntry = React.createClass({
 
   render: function() {
     return (
-      <input type="text" value={this.state.value}
-        onKeyDown={this._onKeyDown} onChange={this._onChange}/>
+      <div>
+        Enter Value: <input type="text" value={this.state.value}
+          onKeyDown={this._onKeyDown} onChange={this._onChange}/>
+        <br />
+        <button onClick={this._onClear}>Clear</button>
+      </div>
     );
   },
 
@@ -32,6 +36,13 @@ var TrieEntry = React.createClass({
     if (e.keyCode === 13) {
       this._save();
     }
+  },
+
+  _onClear: function() {
+    this.props.onClear();
+    this.setState({
+      value: ''
+    });
   }
 });
 

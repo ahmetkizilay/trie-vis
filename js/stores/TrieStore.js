@@ -46,6 +46,10 @@ TrieDispatcher.register(function (action) {
       _path = _trie.pathTo(action.phrase);
       TrieStore.emitChange();
       break;
+    case TrieConstants.TRIE_CLEAR:
+      _trie = new Trie();
+      TrieStore.emitChange();
+      break;
   }
 
 });

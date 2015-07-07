@@ -13,10 +13,25 @@ svg {
   margin-top: 40px;
   box-sizing: border-box;
 }
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+  opacity: 0.4;
+  marker-end: url(#end-arrow);
+}
     </style>
   </head>
   <body>
     <section id="trievisapp"></section>
+    <script src="js/static/d3.v3.js"></script>
+    <script src="js/static/cola.min.js"></script>
     <script src="js/bundle.js"></script>
   </body>
 </html>

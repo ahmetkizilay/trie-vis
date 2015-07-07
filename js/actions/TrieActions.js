@@ -14,6 +14,12 @@ var TrieActions = {
       actionType: TrieConstants.TRIE_SEARCH_PHRASE,
       phrase: phrase
     });
+  },
+
+  clear: function() {
+    TrieDispatcher.dispatch({
+      actionType: TrieConstants.TRIE_CLEAR
+    });
   }
 };
 

@@ -26,7 +26,7 @@ var TrieVisApp = React.createClass({
   render: function() {
     return (
       <div>
-        <TrieEntry onSave={this._onSave}/>
+        <TrieEntry onSave={this._onSave} onClear={this._onClear}/>
         <br />
         <TrieSVG trie={this.state.trie}/>
 
@@ -36,6 +36,10 @@ var TrieVisApp = React.createClass({
 
   _onSave: function (value) {
     TrieActions.insert(value);
+  },
+
+  _onClear: function() {
+    TrieActions.clear();
   },
 
   _onChange: function() {
