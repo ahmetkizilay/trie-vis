@@ -1,7 +1,7 @@
 var React = require('react');
-var CircleSVG = require('./CircleSVG.react');
 var Stack = require('../adt/stack');
 
+// here building the node=link representation of the trie
 function buildGraph(trie) {
   var stack = new Stack();
   var node_index = 0;
