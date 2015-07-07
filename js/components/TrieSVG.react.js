@@ -153,8 +153,13 @@ var TrieSVG = React.createClass({
     this._trigD3();
   },
 
+  shouldComponentUpdate: function() {
+    this._trigD3();
+    return false;
+  },
+
   componentWillUnmount: function() {
-    visualizer.update(this.getDOMNode());
+    visualizer.clear(this.getDOMNode());
   },
 
   render: function() {
